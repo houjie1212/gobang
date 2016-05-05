@@ -28,11 +28,11 @@ var drawChessBoard = function() {
 	for(var i=0; i<chessBoardLineCnt; i++) {
 		//ºáÏß
 		context.moveTo(chessBoardMargin, chessBoardMargin + i*chessBoardBoxLength);
-		context.lineTo(chessBoardMargin + chessBoardLineCnt*chessBoardBoxLength, chessBoardMargin + i*chessBoardBoxLength);
+		context.lineTo(chessBoardMargin + (chessBoardLineCnt-1)*chessBoardBoxLength, chessBoardMargin + i*chessBoardBoxLength);
 		context.stroke();
 		//ÊúÏß
 		context.moveTo(chessBoardMargin + i*chessBoardBoxLength, chessBoardMargin);
-		context.lineTo(chessBoardMargin + i*chessBoardBoxLength, chessBoardMargin + chessBoardLineCnt*chessBoardBoxLength);
+		context.lineTo(chessBoardMargin + i*chessBoardBoxLength, chessBoardMargin + (chessBoardLineCnt-1)*chessBoardBoxLength);
 		context.stroke();
 	}
 }
