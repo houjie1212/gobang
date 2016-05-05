@@ -1,18 +1,20 @@
 var chess = document.getElementById("chess");
 var context = chess.getContext('2d');
 
-var chessBoardLineCnt = 15;		//ÆåÅÌÓĞ¶àÉÙÌõÏß
-var chessBoardMargin = 15;		//ÆåÅÌµ½±ß¿ò¾ŞÂ¹
-var chessBoardBoxLength = 30;	//ÆåÅÌ¸ñ×Ó±ß³¤
-var chessRadius = 13;			//Æå×Ó°ë¾¶
+var chessBoard_lineCnt = 15;		//æ£‹ç›˜æœ‰å¤šå°‘æ¡çº¿
+var chessBoard_margin = 15;		//æ£‹ç›˜åˆ°è¾¹æ¡†å·¨é¹¿
+var chessBoard_boxLength = 30;	//æ£‹ç›˜æ ¼å­è¾¹é•¿
+var chess_adius = 13;			//æ£‹å­åŠå¾„
 
-//µÚÒ»²½ºÚ×Ó
+//ç¬¬ä¸€æ­¥é»‘å­
 var me = true;
 context.strokeStyle = "#BFBFBF";
+
+//è®°å½•æ£‹ç›˜å·²è½å­çš„ç‚¹
 var chessBoard = [];
-for(var i=0; i<chessBoardLineCnt; i++) {
+for(var i=0; i<chessBoard_lineCnt; i++) {
 	chessBoard[i] = [];
-	for(var j=0; j<chessBoardLineCnt; j++) {
+	for(var j=0; j<chessBoard_lineCnt; j++) {
 		chessBoard[i][j] = 0;
 	}
 }
@@ -25,35 +27,35 @@ for(var i=0; i<chessBoardLineCnt; i++) {
 // }
 
 var drawChessBoard = function() {
-	for(var i=0; i<chessBoardLineCnt; i++) {
-		//ºáÏß
-		context.moveTo(chessBoardMargin, chessBoardMargin + i*chessBoardBoxLength);
-		context.lineTo(chessBoardMargin + (chessBoardLineCnt-1)*chessBoardBoxLength, chessBoardMargin + i*chessBoardBoxLength);
+	for(var i=0; i<chessBoard_lineCnt; i++) {
+		//æ¨ªçº¿
+		context.moveTo(chessBoard_margin, chessBoard_margin + i*chessBoard_boxLength);
+		context.lineTo(chessBoard_margin + (chessBoard_lineCnt-1)*chessBoard_boxLength, chessBoard_margin + i*chessBoard_boxLength);
 		context.stroke();
-		//ÊúÏß
-		context.moveTo(chessBoardMargin + i*chessBoardBoxLength, chessBoardMargin);
-		context.lineTo(chessBoardMargin + i*chessBoardBoxLength, chessBoardMargin + (chessBoardLineCnt-1)*chessBoardBoxLength);
+		//ç«–çº¿
+		context.moveTo(chessBoard_margin + i*chessBoard_boxLength, chessBoard_margin);
+		context.lineTo(chessBoard_margin + i*chessBoard_boxLength, chessBoard_margin + (chessBoard_lineCnt-1)*chessBoard_boxLength);
 		context.stroke();
 	}
 }
 
 var oneStep = function(i, j, me) {
 	context.beginPath();
-	context.arc(chessBoardMargin + i*chessBoardBoxLength, chessBoardMargin + j*chessBoardBoxLength, chessRadius, 0, 2*Math.PI);
+	context.arc(chessBoard_margin + i*chessBoard_boxLength, chessBoard_margin + j*chessBoard_boxLength, chess_adius, 0, 2*Math.PI);
 	context.closePath();
 	var gradient = context.createRadialGradient(
-		chessBoardMargin + i*chessBoardBoxLength + 2, 
-		chessBoardMargin + j*chessBoardBoxLength - 2, 
-		chessRadius, 
-		chessBoardMargin + i*chessBoardBoxLength + 2, 
-		chessBoardMargin + j*chessBoardBoxLength - 2, 
+		chessBoard_margin + i*chessBoard_boxLength + 2, 
+		chessBoard_margin + j*chessBoard_boxLength - 2, 
+		chess_adius, 
+		chessBoard_margin + i*chessBoard_boxLength + 2, 
+		chessBoard_margin + j*chessBoard_boxLength - 2, 
 		0);
 	if(me) {
-		//ºÚ×Ó
+		//é»‘å­
 		gradient.addColorStop(0, "#0A0A0A");
 		gradient.addColorStop(1, "#636766");
 	} else {
-		//°××Ö
+		//ç™½å­—
 		gradient.addColorStop(0, "#D1D1D1");
 		gradient.addColorStop(1, "#F9F9F9");
 	}
