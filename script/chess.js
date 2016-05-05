@@ -178,24 +178,26 @@ var computerAi = function() {
 		for(var j=0; j<chessBoard_lineCnt; j++) {
 			if(chessBoard[i][j] == 0) {
 				for(var k=0; k<count; k++) {
-					if(myWin[k] == 1) {
-						myScore[i][j] += 200;
-					} else if(myWin[k] == 2) {
-						myScore[i][j] += 400;
-					} else if(myWin[k] == 3) {
-						myScore[i][j] += 2000;
-					} else if(myWin[k] == 4) {
-						myScore[i][j] += 10000;
-					}
+					if(wins[i][j][k]){
+						if(myWin[k] == 1) {
+							myScore[i][j] += 200;
+						} else if(myWin[k] == 2) {
+							myScore[i][j] += 400;
+						} else if(myWin[k] == 3) {
+							myScore[i][j] += 2000;
+						} else if(myWin[k] == 4) {
+							myScore[i][j] += 10000;
+						}
 
-					if(comWin[k] == 1) {
-						comScore[i][j] += 220;
-					} else if(comWin[k] == 2) {
-						comScore[i][j] += 420;
-					} else if(comWin[k] == 2) {
-						comScore[i][j] += 2100;
-					} else if(comWin[k] == 2) {
-						comScore[i][j] += 20000;
+						if(comWin[k] == 1) {
+							comScore[i][j] += 220;
+						} else if(comWin[k] == 2) {
+							comScore[i][j] += 420;
+						} else if(comWin[k] == 3) {
+							comScore[i][j] += 2100;
+						} else if(comWin[k] == 4) {
+							comScore[i][j] += 20000;
+						}
 					}
 				}
 
