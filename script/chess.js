@@ -1,7 +1,7 @@
 var chess = document.getElementById("chess");
 var context = chess.getContext('2d');
 
-var chessBoard_lineCnt = 15;		//棋盘有多少条线
+var chessBoard_lineCnt = 15;	//棋盘有多少条线
 var chessBoard_margin = 15;		//棋盘到边框巨鹿
 var chessBoard_boxLength = 30;	//棋盘格子边长
 var chess_adius = 13;			//棋子半径
@@ -45,7 +45,7 @@ for(var i=0; i<chessBoard_lineCnt; i++) {
 for(var i=0; i<chessBoard_lineCnt; i++) {
 	for(var j=0; j<chessBoard_lineCnt-4; j++) {
 		for(var k=0; k<5; k++) {
-			wins[j+k][j][count] = true;
+			wins[j+k][i][count] = true;
 		}
 		count++;
 	}
@@ -69,7 +69,7 @@ for(var i=0; i<chessBoard_lineCnt-4; i++) {
 	}
 }
 
-//console.log(count);
+//console.log('count:'+count);
 
 var myWin = [];
 var comWin = [];
@@ -114,7 +114,7 @@ var oneStep = function(i, j, me) {
 		gradient.addColorStop(0, "#0A0A0A");
 		gradient.addColorStop(1, "#636766");
 	} else {
-		//白字
+		//白子
 		gradient.addColorStop(0, "#D1D1D1");
 		gradient.addColorStop(1, "#F9F9F9");
 	}
@@ -153,7 +153,6 @@ chess.onclick = function(e) {
 				}
 			}
 		}
-
 		if(!over) {
 			me = !me;
 			computerAi();
@@ -240,7 +239,6 @@ var computerAi = function() {
 			}
 		}
 	}
-
 	if(!over) {
 		me = !me;
 	}
