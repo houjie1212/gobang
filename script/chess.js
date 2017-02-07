@@ -149,6 +149,7 @@ chess.onclick = function(e) {
 				if(myWin[k] == 5) {
 					alert("你赢了");
 					over = true;
+					return;
 				}
 			}
 		}
@@ -235,6 +236,7 @@ var computerAi = function() {
 			if(comWin[k] == 5) {
 				alert("你输了");
 				over = true;
+				return;
 			}
 		}
 	}

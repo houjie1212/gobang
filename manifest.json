@@ -1,0 +1,9 @@
+{
+	"manifest_version":2,
+	"name":"gobang",
+	"version":"1.0",
+	"description":"test chrome app",
+	"browser_action":{
+		"default_popup":"index.html"
+	}
+}
